@@ -65,35 +65,35 @@ class WeatherRepository(
 //INSERT
 
     private suspend fun insertWeatherModel(databaseWeatherModel: DatabaseWeatherModel) {
-        db.roomDao().insertWeatherModel(databaseWeatherModel)
+        db.getRoomDao().insertWeatherModel(databaseWeatherModel)
     }
 
     private suspend fun insertCurrentWeather(databaseCurrentWeather: DatabaseCurrentWeather) {
-        db.roomDao().insertCurrentWeather(databaseCurrentWeather)
+        db.getRoomDao().insertCurrentWeather(databaseCurrentWeather)
     }
 
     private suspend fun insertHourlyWeather(databaseHourlyWeather: List<DatabaseHourlyWeather>) {
-        db.roomDao().insertHourlyWeather(databaseHourlyWeather)
+        db.getRoomDao().insertHourlyWeather(databaseHourlyWeather)
     }
 
     private suspend fun insertDailyWeather(databaseDailyWeather: List<DatabaseDailyWeather>) {
-        db.roomDao().insertDailyWeather(databaseDailyWeather)
+        db.getRoomDao().insertDailyWeather(databaseDailyWeather)
     }
 
 
 //QUERY
 
     private suspend fun getWeatherModel(primaryId: Int): DatabaseWeatherModel? =
-        db.roomDao().getWeatherModel(primaryId)
+        db.getRoomDao().getWeatherModel(primaryId)
 
     private suspend fun getHourlyWeather(primaryId: Int): WeatherModelWithHourly? =
-        db.roomDao().getHourlyWeather(primaryId)
+        db.getRoomDao().getHourlyWeather(primaryId)
 
     private suspend fun getDailyWeather(primaryId: Int): WeatherModelWithDaily? =
-        db.roomDao().getDailyWeather(primaryId)
+        db.getRoomDao().getDailyWeather(primaryId)
 
     private suspend fun getCurrentWeather(primaryId: Int): DatabaseCurrentWeather? =
-        db.roomDao().getCurrentWeather(primaryId)
+        db.getRoomDao().getCurrentWeather(primaryId)
 
 //  Logic to fetch data from db or api
 
